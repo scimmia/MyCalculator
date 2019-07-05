@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/lab_jine"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="票据金额（元）"
+        app:layout_constraintHorizontal_weight="2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/et_jine" />
+
+    <EditText
+        android:id="@+id/et_jine"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/lab_jine"
+        app:layout_constraintRight_toLeftOf="@+id/bt_jine"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <Button
+        android:id="@+id/bt_jine"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/stat_notify_voicemail"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/et_jine"
+        app:layout_constraintRight_toRightOf="parent" />
+
+
+
+    <TextView
+        android:id="@+id/lab_nianlilv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="年利率（％）"
+        app:layout_constraintHorizontal_weight="2"
+        app:layout_constraintTop_toBottomOf="@+id/et_jine"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/et_nianlilv" />
+
+    <EditText
+        android:id="@+id/et_nianlilv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintTop_toBottomOf="@+id/et_jine"
+        app:layout_constraintLeft_toRightOf="@+id/lab_nianlilv"
+        app:layout_constraintRight_toLeftOf="@+id/bt_nianlilv"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <Button
+        android:id="@+id/bt_nianlilv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintTop_toBottomOf="@+id/et_jine"
+        app:layout_constraintLeft_toRightOf="@+id/et_nianlilv"
+        app:layout_constraintRight_toRightOf="parent" />
+
+
+    <TextView
+        android:id="@+id/lab_yuelilv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="月利率（‰）"
+        app:layout_constraintHorizontal_weight="2"
+        app:layout_constraintTop_toBottomOf="@+id/et_nianlilv"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/et_yuelilv" />
+
+    <EditText
+        android:id="@+id/et_yuelilv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintTop_toBottomOf="@+id/et_nianlilv"
+        app:layout_constraintLeft_toRightOf="@+id/lab_yuelilv"
+        app:layout_constraintRight_toLeftOf="@+id/bt_yuelilv"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <Button
+        android:id="@+id/bt_yuelilv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintTop_toBottomOf="@+id/et_nianlilv"
+        app:layout_constraintLeft_toRightOf="@+id/et_yuelilv"
+        app:layout_constraintRight_toRightOf="parent" />
+
+
+    <TextView
+        android:id="@+id/lab_tiexianriqi"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="贴现日期"
+        app:layout_constraintHorizontal_weight="2"
+        app:layout_constraintTop_toBottomOf="@+id/et_yuelilv"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/et_tiexianriqi" />
+
+    <Button
+        android:id="@+id/et_tiexianriqi"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintTop_toBottomOf="@+id/et_yuelilv"
+        app:layout_constraintLeft_toRightOf="@+id/lab_tiexianriqi"
+        app:layout_constraintRight_toLeftOf="@+id/bt_tiexianriqi"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <Button
+        android:id="@+id/bt_tiexianriqi"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintTop_toBottomOf="@+id/et_yuelilv"
+        app:layout_constraintLeft_toRightOf="@+id/et_tiexianriqi"
+        app:layout_constraintRight_toRightOf="parent" />
+
+
+    <TextView
+        android:id="@+id/lab_daoqiriqi"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="到期日期"
+        app:layout_constraintHorizontal_weight="2"
+        app:layout_constraintTop_toBottomOf="@+id/et_tiexianriqi"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/et_daoqiriqi" />
+
+    <Button
+        android:id="@+id/et_daoqiriqi"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/edit_text"
+        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintTop_toBottomOf="@+id/et_tiexianriqi"
+        app:layout_constraintLeft_toRightOf="@+id/lab_daoqiriqi"
+        app:layout_constraintRight_toLeftOf="@+id/bt_daoqiriqi"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <Button
+        android:id="@+id/bt_daoqiriqi"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintTop_toBottomOf="@+id/et_tiexianriqi"
+        app:layout_constraintLeft_toRightOf="@+id/et_daoqiriqi"
+        app:layout_constraintRight_toRightOf="parent" />
+
+
+    <TextView
+        android:id="@+id/lab_tiaozhengtianshu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="调整天数"
+        app:layout_constraintHorizontal_weight="2"
+        app:layout_constraintTop_toBottomOf="@+id/et_daoqiriqi"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/et_tiaozhengtianshu" />
+
+    <EditText
+        android:id="@+id/et_tiaozhengtianshu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="numberSigned"
+        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintTop_toBottomOf="@+id/et_daoqiriqi"
+        app:layout_constraintLeft_toRightOf="@+id/lab_tiaozhengtianshu"
+        app:layout_constraintRight_toLeftOf="@+id/bt_tiaozhengtianshu"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <Button
+        android:id="@+id/bt_tiaozhengtianshu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintTop_toBottomOf="@+id/et_daoqiriqi"
+        app:layout_constraintLeft_toRightOf="@+id/et_tiaozhengtianshu"
+        app:layout_constraintRight_toRightOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
