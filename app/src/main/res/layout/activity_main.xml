@@ -1,196 +1,316 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/lab_jine"
-        android:layout_width="0dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="票据金额（元）"
-        app:layout_constraintHorizontal_weight="2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/et_jine" />
+        android:padding="16dp"
+        tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/et_jine"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        app:layout_constraintHorizontal_weight="3"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/lab_jine"
-        app:layout_constraintRight_toLeftOf="@+id/bt_jine"
-        app:layout_constraintRight_toRightOf="parent" />
+        <Switch
+            android:id="@+id/sw_pjlx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:showText="true"
+            android:text="票据类型"
+            android:textOff="纸"
+            android:textOn="电"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:checked="true" />
 
-    <Button
-        android:id="@+id/bt_jine"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/stat_notify_voicemail"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/et_jine"
-        app:layout_constraintRight_toRightOf="parent" />
+        <TextView
+            android:id="@+id/lab_jine"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="票据金额（元）"
+            android:gravity="center_vertical"
+            app:layout_constraintHorizontal_weight="2"
+            app:layout_constraintTop_toTopOf="@+id/et_jine"
+            app:layout_constraintBottom_toBottomOf="@+id/et_jine"
+            app:layout_constraintRight_toLeftOf="@+id/et_jine"
+            app:layout_constraintLeft_toLeftOf="parent" />
 
+        <EditText
+            android:id="@+id/et_jine"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            app:layout_constraintHorizontal_weight="3"
+            app:layout_constraintTop_toBottomOf="@+id/sw_pjlx"
+            app:layout_constraintLeft_toRightOf="@+id/lab_jine"
+            app:layout_constraintRight_toLeftOf="@+id/bt_jine"
+            app:layout_constraintRight_toRightOf="parent" />
 
-
-    <TextView
-        android:id="@+id/lab_nianlilv"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="年利率（％）"
-        app:layout_constraintHorizontal_weight="2"
-        app:layout_constraintTop_toBottomOf="@+id/et_jine"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/et_nianlilv" />
-
-    <EditText
-        android:id="@+id/et_nianlilv"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        app:layout_constraintHorizontal_weight="3"
-        app:layout_constraintTop_toBottomOf="@+id/et_jine"
-        app:layout_constraintLeft_toRightOf="@+id/lab_nianlilv"
-        app:layout_constraintRight_toLeftOf="@+id/bt_nianlilv"
-        app:layout_constraintRight_toRightOf="parent" />
-
-    <Button
-        android:id="@+id/bt_nianlilv"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintTop_toBottomOf="@+id/et_jine"
-        app:layout_constraintLeft_toRightOf="@+id/et_nianlilv"
-        app:layout_constraintRight_toRightOf="parent" />
+        <ImageButton
+            android:id="@+id/bt_jine"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/mic"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintTop_toTopOf="@+id/et_jine"
+            app:layout_constraintBottom_toBottomOf="@+id/et_jine"
+            app:layout_constraintLeft_toRightOf="@+id/et_jine"
+            app:layout_constraintRight_toRightOf="parent" />
 
 
-    <TextView
-        android:id="@+id/lab_yuelilv"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="月利率（‰）"
-        app:layout_constraintHorizontal_weight="2"
-        app:layout_constraintTop_toBottomOf="@+id/et_nianlilv"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/et_yuelilv" />
 
-    <EditText
-        android:id="@+id/et_yuelilv"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        app:layout_constraintHorizontal_weight="3"
-        app:layout_constraintTop_toBottomOf="@+id/et_nianlilv"
-        app:layout_constraintLeft_toRightOf="@+id/lab_yuelilv"
-        app:layout_constraintRight_toLeftOf="@+id/bt_yuelilv"
-        app:layout_constraintRight_toRightOf="parent" />
+        <TextView
+            android:id="@+id/lab_nianlilv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="年利率（％）"
+            android:gravity="center_vertical"
+            app:layout_constraintHorizontal_weight="2"
+            app:layout_constraintTop_toTopOf="@+id/et_nianlilv"
+            app:layout_constraintBottom_toBottomOf="@+id/et_nianlilv"
+            app:layout_constraintRight_toLeftOf="@+id/et_nianlilv"
+            app:layout_constraintLeft_toLeftOf="parent"/>
 
-    <Button
-        android:id="@+id/bt_yuelilv"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintTop_toBottomOf="@+id/et_nianlilv"
-        app:layout_constraintLeft_toRightOf="@+id/et_yuelilv"
-        app:layout_constraintRight_toRightOf="parent" />
+        <EditText
+            android:id="@+id/et_nianlilv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            app:layout_constraintHorizontal_weight="3"
+            app:layout_constraintTop_toBottomOf="@+id/et_jine"
+            app:layout_constraintLeft_toRightOf="@+id/lab_nianlilv"
+            app:layout_constraintRight_toLeftOf="@+id/bt_nianlilv"
+            app:layout_constraintRight_toRightOf="parent" />
 
-
-    <TextView
-        android:id="@+id/lab_tiexianriqi"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="贴现日期"
-        app:layout_constraintHorizontal_weight="2"
-        app:layout_constraintTop_toBottomOf="@+id/et_yuelilv"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/et_tiexianriqi" />
-
-    <Button
-        android:id="@+id/et_tiexianriqi"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintHorizontal_weight="3"
-        app:layout_constraintTop_toBottomOf="@+id/et_yuelilv"
-        app:layout_constraintLeft_toRightOf="@+id/lab_tiexianriqi"
-        app:layout_constraintRight_toLeftOf="@+id/bt_tiexianriqi"
-        app:layout_constraintRight_toRightOf="parent" />
-
-    <Button
-        android:id="@+id/bt_tiexianriqi"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintTop_toBottomOf="@+id/et_yuelilv"
-        app:layout_constraintLeft_toRightOf="@+id/et_tiexianriqi"
-        app:layout_constraintRight_toRightOf="parent" />
+        <ImageButton
+            android:id="@+id/bt_nianlilv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/mic"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintTop_toTopOf="@+id/et_nianlilv"
+            app:layout_constraintBottom_toBottomOf="@+id/et_nianlilv"
+            app:layout_constraintLeft_toRightOf="@+id/et_nianlilv"
+            app:layout_constraintRight_toRightOf="parent" />
 
 
-    <TextView
-        android:id="@+id/lab_daoqiriqi"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="到期日期"
-        app:layout_constraintHorizontal_weight="2"
-        app:layout_constraintTop_toBottomOf="@+id/et_tiexianriqi"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/et_daoqiriqi" />
+        <TextView
+            android:id="@+id/lab_yuelilv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="月利率（‰）"
+            android:gravity="center_vertical"
+            app:layout_constraintHorizontal_weight="2"
+            app:layout_constraintTop_toTopOf="@+id/et_yuelilv"
+            app:layout_constraintBottom_toBottomOf="@+id/et_yuelilv"
+            app:layout_constraintRight_toLeftOf="@+id/et_yuelilv"
+            app:layout_constraintLeft_toLeftOf="parent"/>
 
-    <Button
-        android:id="@+id/et_daoqiriqi"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/edit_text"
-        app:layout_constraintHorizontal_weight="3"
-        app:layout_constraintTop_toBottomOf="@+id/et_tiexianriqi"
-        app:layout_constraintLeft_toRightOf="@+id/lab_daoqiriqi"
-        app:layout_constraintRight_toLeftOf="@+id/bt_daoqiriqi"
-        app:layout_constraintRight_toRightOf="parent" />
+        <EditText
+            android:id="@+id/et_yuelilv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            app:layout_constraintHorizontal_weight="3"
+            app:layout_constraintTop_toBottomOf="@+id/et_nianlilv"
+            app:layout_constraintLeft_toRightOf="@+id/lab_yuelilv"
+            app:layout_constraintRight_toLeftOf="@+id/bt_yuelilv"
+            app:layout_constraintRight_toRightOf="parent" />
 
-    <Button
-        android:id="@+id/bt_daoqiriqi"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintTop_toBottomOf="@+id/et_tiexianriqi"
-        app:layout_constraintLeft_toRightOf="@+id/et_daoqiriqi"
-        app:layout_constraintRight_toRightOf="parent" />
+        <ImageButton
+            android:id="@+id/bt_yuelilv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/mic"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintTop_toTopOf="@+id/et_yuelilv"
+            app:layout_constraintBottom_toBottomOf="@+id/et_yuelilv"
+            app:layout_constraintLeft_toRightOf="@+id/et_yuelilv"
+            app:layout_constraintRight_toRightOf="parent" />
 
 
-    <TextView
-        android:id="@+id/lab_tiaozhengtianshu"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="调整天数"
-        app:layout_constraintHorizontal_weight="2"
-        app:layout_constraintTop_toBottomOf="@+id/et_daoqiriqi"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/et_tiaozhengtianshu" />
+        <TextView
+            android:id="@+id/lab_tiexianriqi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="贴现日期"
+            android:gravity="center_vertical"
+            app:layout_constraintHorizontal_weight="2"
+            app:layout_constraintTop_toTopOf="@+id/et_tiexianriqi"
+            app:layout_constraintBottom_toBottomOf="@+id/et_tiexianriqi"
+            app:layout_constraintRight_toLeftOf="@+id/et_tiexianriqi"
+            app:layout_constraintLeft_toLeftOf="parent"/>
 
-    <EditText
-        android:id="@+id/et_tiaozhengtianshu"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:inputType="numberSigned"
-        app:layout_constraintHorizontal_weight="3"
-        app:layout_constraintTop_toBottomOf="@+id/et_daoqiriqi"
-        app:layout_constraintLeft_toRightOf="@+id/lab_tiaozhengtianshu"
-        app:layout_constraintRight_toLeftOf="@+id/bt_tiaozhengtianshu"
-        app:layout_constraintRight_toRightOf="parent" />
+        <Button
+            android:id="@+id/et_tiexianriqi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintHorizontal_weight="3"
+            app:layout_constraintTop_toBottomOf="@+id/et_yuelilv"
+            app:layout_constraintLeft_toRightOf="@+id/lab_tiexianriqi"
+            app:layout_constraintRight_toLeftOf="@+id/bt_tiexianriqi"
+            app:layout_constraintRight_toRightOf="parent" />
 
-    <Button
-        android:id="@+id/bt_tiaozhengtianshu"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintTop_toBottomOf="@+id/et_daoqiriqi"
-        app:layout_constraintLeft_toRightOf="@+id/et_tiaozhengtianshu"
-        app:layout_constraintRight_toRightOf="parent" />
+        <ImageButton
+            android:id="@+id/bt_tiexianriqi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/mic"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintTop_toTopOf="@+id/et_tiexianriqi"
+            app:layout_constraintBottom_toBottomOf="@+id/et_tiexianriqi"
+            app:layout_constraintLeft_toRightOf="@+id/et_tiexianriqi"
+            app:layout_constraintRight_toRightOf="parent" />
 
-</android.support.constraint.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/lab_daoqiriqi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="到期日期"
+            android:gravity="center_vertical"
+            app:layout_constraintHorizontal_weight="2"
+            app:layout_constraintTop_toTopOf="@+id/et_daoqiriqi"
+            app:layout_constraintBottom_toBottomOf="@+id/et_daoqiriqi"
+            app:layout_constraintRight_toLeftOf="@+id/et_daoqiriqi"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+        <Button
+            android:id="@+id/et_daoqiriqi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/edit_text"
+            app:layout_constraintHorizontal_weight="3"
+            app:layout_constraintTop_toBottomOf="@+id/et_tiexianriqi"
+            app:layout_constraintLeft_toRightOf="@+id/lab_daoqiriqi"
+            app:layout_constraintRight_toLeftOf="@+id/bt_daoqiriqi"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <ImageButton
+            android:id="@+id/bt_daoqiriqi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/mic"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintTop_toTopOf="@+id/et_daoqiriqi"
+            app:layout_constraintBottom_toBottomOf="@+id/et_daoqiriqi"
+            app:layout_constraintLeft_toRightOf="@+id/et_daoqiriqi"
+            app:layout_constraintRight_toRightOf="parent" />
+
+
+        <TextView
+            android:id="@+id/lab_tiaozhengtianshu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="调整天数"
+            android:gravity="center_vertical"
+            app:layout_constraintHorizontal_weight="2"
+            app:layout_constraintTop_toTopOf="@+id/et_tiaozhengtianshu"
+            app:layout_constraintBottom_toBottomOf="@+id/et_tiaozhengtianshu"
+            app:layout_constraintRight_toLeftOf="@+id/et_tiaozhengtianshu"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <EditText
+            android:id="@+id/et_tiaozhengtianshu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="numberSigned"
+            android:hint="0"
+            app:layout_constraintHorizontal_weight="3"
+            app:layout_constraintTop_toBottomOf="@+id/et_daoqiriqi"
+            app:layout_constraintLeft_toRightOf="@+id/lab_tiaozhengtianshu"
+            app:layout_constraintRight_toLeftOf="@+id/bt_tiaozhengtianshu"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <ImageButton
+            android:id="@+id/bt_tiaozhengtianshu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/mic"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintTop_toTopOf="@+id/et_tiaozhengtianshu"
+            app:layout_constraintBottom_toBottomOf="@+id/et_tiaozhengtianshu"
+            app:layout_constraintLeft_toRightOf="@+id/et_tiaozhengtianshu"
+            app:layout_constraintRight_toRightOf="parent" />
+
+
+        <TextView
+            android:id="@+id/lab_mswsxf"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="每十万手续费（元）"
+            android:gravity="center_vertical"
+            app:layout_constraintHorizontal_weight="2"
+            app:layout_constraintTop_toTopOf="@+id/et_mswsxf"
+            app:layout_constraintBottom_toBottomOf="@+id/et_mswsxf"
+            app:layout_constraintRight_toLeftOf="@+id/et_mswsxf"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+        <EditText
+            android:id="@+id/et_mswsxf"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            app:layout_constraintHorizontal_weight="3"
+            app:layout_constraintTop_toBottomOf="@+id/et_tiaozhengtianshu"
+            app:layout_constraintLeft_toRightOf="@+id/lab_mswsxf"
+            app:layout_constraintRight_toLeftOf="@+id/bt_mswsxf"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <ImageButton
+            android:id="@+id/bt_mswsxf"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/mic"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintTop_toTopOf="@+id/et_mswsxf"
+            app:layout_constraintBottom_toBottomOf="@+id/et_mswsxf"
+            app:layout_constraintLeft_toRightOf="@+id/et_mswsxf"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <Button
+            android:id="@+id/bt_reset"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:text="重置"
+            android:textSize="18sp"
+            android:textColor="@android:color/white"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintTop_toBottomOf="@+id/et_mswsxf"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/bt_submit"/>
+
+        <Button
+            android:id="@+id/bt_submit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:text="计算"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintTop_toBottomOf="@+id/et_mswsxf"
+            app:layout_constraintLeft_toRightOf="@+id/bt_reset"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            app:layout_constraintTop_toBottomOf="@+id/bt_submit"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
