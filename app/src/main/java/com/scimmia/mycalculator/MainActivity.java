@@ -132,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
         mToast = Toast.makeText(this, "", Toast.LENGTH_SHORT);
 
         dateFrom = Calendar.getInstance();
-        dateTo = dateFrom;
+        dateTo = Calendar.getInstance();
         // 初始化听写Dialog，如果只使用有UI听写功能，无需创建SpeechRecognizer
         // 使用UI听写功能，请根据sdk文件目录下的notice.txt,放置布局文件和图片资源
         mIatDialog = new RecognizerDialog(MainActivity.this, mInitListener);
@@ -191,7 +191,7 @@ public class MainActivity extends AppCompatActivity {
 
     int mCurrentBt = 0;
 
-    @OnClick({R.id.bt_jine, R.id.bt_nianlilv, R.id.bt_yuelilv, R.id.bt_tiexianriqi, R.id.bt_daoqiriqi, R.id.bt_tiaozhengtianshu})
+    @OnClick({R.id.bt_jine, R.id.bt_nianlilv, R.id.bt_yuelilv, R.id.bt_tiexianriqi, R.id.bt_daoqiriqi, R.id.bt_tiaozhengtianshu,R.id.bt_mswsxf})
     void startVoice(View view) {
         mCurrentBt = view.getId();
         mIatDialog.show();
@@ -215,10 +215,11 @@ public class MainActivity extends AppCompatActivity {
             Double sxf = NumberUtils.toDouble(etMswsxf.getText().toString());
             MutablePair<Integer,Integer> tzrq = getTzrq();
             int tztsTemp = tzrq.left + tzts;
+            int jxtxTemp = tzrq.right + tzts;
             if (!swPjlx.isChecked()){
                 tztsTemp += 3;
+                jxtxTemp += 3;
             }
-            int jxtxTemp = tzrq.right + tztsTemp;
             double txlx = jine * jxtxTemp * nlilv / 3.6 + jine * sxf / 10;
             double tzje = jine * 10000 - txlx;
             double mswjg = txlx * 10 / jine;
@@ -264,27 +265,51 @@ public class MainActivity extends AppCompatActivity {
                             break;
                         case R.id.bt_nianlilv:
                             Log.e(TAG, "bt_nianlilv");
-                            re = etNianlilv.getText() + result;
-                            etNianlilv.setText(re);
+                            re = result;
+                            DecimalFormat df = new DecimalFormat("0.000");
+                            double nlilv = NumberUtils.toDouble(re);
+                            if (nlilv > 0){
+                                etYuelilv.setText(df.format(nlilv * 1.2));
+                                etNianlilv.setText(re);
+                            }
                             break;
                         case R.id.bt_yuelilv:
                             Log.e(TAG, "bt_yuelilv");
-                            re = etNianlilv.getText() + result;
-                            etYuelilv.setText(re);
+                            re = result;
+                            DecimalFormat dfa = new DecimalFormat("0.00");
+                            double ylilv = NumberUtils.toDouble(re);
+                            if (ylilv > 0){
+                                etYuelilv.setText(re);
+                                etNianlilv.setText(dfa.format(ylilv / 1.2));
+                            }
                             break;
                         case R.id.bt_tiexianriqi:
                             Log.e(TAG, "bt_tiexianriqi");
                             re = result;
-                            etTiexianriqi.setText(re);
+                            try {
+                                dateFrom.setTime(FastDateFormat.getInstance("yyyyMMdd").parse(re));
+                                etTiexianriqi.setText(re);
+                            } catch (ParseException e) {
+                                e.printStackTrace();
+                            }
                             break;
                         case R.id.bt_daoqiriqi:
                             Log.e(TAG, "bt_daoqiriqi");
                             re = result;
-                            etDaoqiriqi.setText(re);
+                            try {
+                                dateTo.setTime(FastDateFormat.getInstance("yyyyMMdd").parse(re));
+                                etDaoqiriqi.setText(re);
+                            } catch (ParseException e) {
+                                e.printStackTrace();
+                            }
                             break;
                         case R.id.bt_tiaozhengtianshu:
                             Log.e(TAG, "bt_tiaozhengtianshu");
-                            etTiaozhengtianshu.setText(LDataFormat.format(result));
+                            etTiaozhengtianshu.setText(result);
+                            break;
+                        case R.id.bt_mswsxf:
+                            Log.e(TAG, "bt_mswsxf");
+                            etMswsxf.setText(result);
                             break;
                         default:
                             break;
