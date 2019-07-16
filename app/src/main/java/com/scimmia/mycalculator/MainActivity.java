@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Rect;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.text.Html;
@@ -43,6 +44,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.BindView;
@@ -50,7 +52,7 @@ import butterknife.OnClick;
 import butterknife.OnFocusChange;
 import pub.devrel.easypermissions.EasyPermissions;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  implements EasyPermissions.PermissionCallbacks{
 
 
     @BindView(R.id.sw_pjlx)
@@ -103,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
     private static String TAG = MainActivity.class.getSimpleName();
 
     private void showTip(final String str) {
-        mToast.setText(str);
+        mToast = Toast.makeText(this, str, Toast.LENGTH_SHORT);
         mToast.show();
     }
 
@@ -129,7 +131,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        mToast = Toast.makeText(this, "", Toast.LENGTH_SHORT);
 
         dateFrom = Calendar.getInstance();
         dateTo = Calendar.getInstance();
@@ -223,7 +224,7 @@ public class MainActivity extends AppCompatActivity {
             double txlx = jine * jxtxTemp * nlilv / 3.6 + jine * sxf / 10;
             double tzje = jine * 10000 - txlx;
             double mswjg = txlx * 10 / jine;
-            showTip(txlx+"--"+tzje+"--"+mswjg);
+//            showTip(txlx+"--"+tzje+"--"+mswjg);
             DecimalFormat df = new DecimalFormat("0.000");
 
             String htmlText =
@@ -255,12 +256,13 @@ public class MainActivity extends AppCompatActivity {
             Log.e(TAG, "re:--" + result);
             String re = "";
             if (!TextUtils.isEmpty(result)) {
-                showTip(result);
+//                showTip(result);
                 try {
                     switch (mCurrentBt) {
                         case R.id.bt_jine:
                             Log.e(TAG, "bt_jine");
-                            re = LDataFormat.format(result);
+                            re = result;
+//                            re = LDataFormat.format(result);
                             etJine.setText(re);
                             break;
                         case R.id.bt_nianlilv:
@@ -523,5 +525,15 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         return result;
+    }
+
+    @Override
+    public void onPermissionsGranted(int requestCode, @NonNull List<String> perms) {
+
+    }
+
+    @Override
+    public void onPermissionsDenied(int requestCode, @NonNull List<String> perms) {
+        showTip("请允许权限，否则应用将无法正常使用");
     }
 }
